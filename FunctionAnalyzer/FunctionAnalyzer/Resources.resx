@@ -165,4 +165,16 @@
     <value>FunctionNameAttribute name should be the class name.</value>
     <comment>The title of the diagnostic.</comment>
   </data>
+  <data name="ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterDescription" xml:space="preserve">
+    <value>An activity method's first parameter should have a 'ActivityTriggerAttribute'.</value>
+    <comment>An optional longer localizable description of the diagnostic.</comment>
+  </data>
+  <data name="ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterMessageFormat" xml:space="preserve">
+    <value>The method '{0}' should have an 'ActivityTriggerAttribute' on its first parameter.</value>
+    <comment>The format-able message the diagnostic displays.</comment>
+  </data>
+  <data name="ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterTitle" xml:space="preserve">
+    <value>An activity method's first parameter should have a 'ActivityTriggerAttribute'.</value>
+    <comment>The title of the diagnostic.</comment>
+  </data>
 </root>

@@ -88,6 +88,33 @@ namespace FunctionAnalyzer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An activity method&apos;s first parameter should have a &apos;ActivityTriggerAttribute&apos;..
+        /// </summary>
+        internal static string ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterDescription {
+            get {
+                return ResourceManager.GetString("ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The method &apos;{0}&apos; should have an &apos;ActivityTriggerAttribute&apos; on its first parameter..
+        /// </summary>
+        internal static string ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterMessageFormat {
+            get {
+                return ResourceManager.GetString("ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An activity method&apos;s first parameter should have a &apos;ActivityTriggerAttribute&apos;..
+        /// </summary>
+        internal static string ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterTitle {
+            get {
+                return ResourceManager.GetString("ActivityMethodShouldHaveActivityTriggerAttributeOnFirstParameterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activity functions should have a type name that ends on &apos;Activity&apos;..
         /// </summary>
         internal static string ActivityTypeEndsOnActivityDescription {

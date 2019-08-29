@@ -20,7 +20,8 @@ namespace TestHelper
         private static readonly MetadataReference SystemCoreReference = MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location);
         private static readonly MetadataReference CSharpSymbolsReference = MetadataReference.CreateFromFile(typeof(CSharpCompilation).Assembly.Location);
         private static readonly MetadataReference CodeAnalysisReference = MetadataReference.CreateFromFile(typeof(Compilation).Assembly.Location);
-        private static readonly MetadataReference AzureFunctionsReference = MetadataReference.CreateFromFile(typeof(FunctionNameAttribute).Assembly.Location);
+        private static readonly MetadataReference AzureWebJobsReference = MetadataReference.CreateFromFile(typeof(FunctionNameAttribute).Assembly.Location);
+        private static readonly MetadataReference AzureDurableFunctionsReference = MetadataReference.CreateFromFile(typeof(ActivityTriggerAttribute).Assembly.Location);
 
         internal static string DefaultFilePathPrefix = "Test";
         internal static string CSharpDefaultFileExt = "cs";
@@ -141,10 +142,10 @@ namespace TestHelper
         /// <param name="sources">Classes in the form of strings</param>
         /// <param name="language">The language the source code is in</param>
         /// <returns>A Project created out of the Documents created from the source strings</returns>
-        private static Project CreateProject(string[] sources, string language = LanguageNames.CSharp)
+        private static Project CreateProject(IEnumerable<string> sources, string language = LanguageNames.CSharp)
         {
-            string fileNamePrefix = DefaultFilePathPrefix;
-            string fileExt = language == LanguageNames.CSharp ? CSharpDefaultFileExt : VisualBasicDefaultExt;
+            var fileNamePrefix = DefaultFilePathPrefix;
+            var fileExt = language == LanguageNames.CSharp ? CSharpDefaultFileExt : VisualBasicDefaultExt;
 
             var projectId = ProjectId.CreateNewId(debugName: TestProjectName);
 
@@ -155,9 +156,10 @@ namespace TestHelper
                 .AddMetadataReference(projectId, SystemCoreReference)
                 .AddMetadataReference(projectId, CSharpSymbolsReference)
                 .AddMetadataReference(projectId, CodeAnalysisReference)
-                .AddMetadataReference(projectId, AzureFunctionsReference);
+                .AddMetadataReference(projectId, AzureWebJobsReference)
+                .AddMetadataReference(projectId, AzureDurableFunctionsReference);
 
-            int count = 0;
+            var count = 0;
             foreach (var source in sources)
             {
                 var newFileName = fileNamePrefix + count + "." + fileExt;
